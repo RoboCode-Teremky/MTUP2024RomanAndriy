@@ -6,21 +6,20 @@ public class Player : MonoBehaviour
 {
     private float MoveSpeed = 5.0f;
     private int Hp = 5;
-    public MoveSpeed ms;
-    private GameObject gameObject;
+
     void Start()
     {
-        Move();
+        
     }
 
     void Update()
     {
-        
+        Move();
     }
     public void Move(){
-        if(GetButtonDown<"W">())
-        {transform.position = new Vector3(transform.position.x++ , transform.position.y , transform.position.z);
-            
+        if(Input.GetKeyDown(KeyCode.W))
+        {
+            transform.position = new Vector3(transform.position.x+MoveSpeed*Time.deltaTime, transform.position.y , transform.position.z);  
         }
     }
 }
