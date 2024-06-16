@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float MoveSpeed = 5.0f;
-    private int Hp = 5;
+    public float MoveSpeed = 5.0f;
+    public int Hp = 5;
+    public float HighJump = 10.0f;
 
     void Start()
     {
@@ -13,13 +14,16 @@ public class Player : MonoBehaviour
     }
 
     void Update()
-    {
+    { 
         Move();
+      float x = Input.GetAxis("Horizontal");
+      float y = Input.GetAxis("Vertical");
+      Vector3 movement = new Vector3(x, 0 , y);
+      transform.Translate(movement*MoveSpeed*Time.deltaTime);
     }
     public void Move(){
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            transform.position = new Vector3(transform.position.x+MoveSpeed*Time.deltaTime, transform.position.y , transform.position.z);  
-        }
-    }
+      if(Input.GetKeyDown(KeyCode.Space))
+      {
+          transform.position = new Vector3(transform.position.x, transform.position.y+HighJump*MoveSpeed*Time.deltaTime, transform.position.z);  
+      }  }
 }
