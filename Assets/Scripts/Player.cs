@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public float MoveSpeed = 5.0f;
     public int Hp = 5;
-    public float HighJump = 10.0f;
+    public float HighJump = 1.0f;
 
     void Start()
     {
@@ -24,6 +24,6 @@ public class Player : MonoBehaviour
     public void Move(){
       if(Input.GetKeyDown(KeyCode.Space))
       {
-          transform.position = new Vector3(transform.position.x, transform.position.y+HighJump*MoveSpeed*Time.deltaTime, transform.position.z);  
+          transform.position = new Vector3(transform.position.x, transform.position.y+HighJump*Time.deltaTime, transform.position.z);  
       }  }
 }
